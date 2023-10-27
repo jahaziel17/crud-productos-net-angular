@@ -1,0 +1,25 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Precio</th>
+      <th>Existencia</th>
+      <th>Tipo Producto</th>
+      <th>Fecha Registro</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let producto of productoService.listjoin">
+    <td>{{ producto.nombreProducto}}</td>
+    <td>{{ producto.descripcionProducto}}</td>
+    <td>{{ producto.precio | currency: 'USD'}}</td>
+    <td>{{ producto.existencia}}</td>
+    <td>{{ producto.nombreTipoProducto}}</td>
+    <td>{{ producto.fechaRegistro | date:'dd/MM/yyyy'}}</td>
+    <td><i class="far fa-edit fa-lg text-info" (click)="editar(producto)" style="cursor: pointer;"></i></td>
+    <td><i class="far fa-trash-alt fa-lg text-danger" (click)="eliminarProducto(producto.id)"
+        style="cursor: pointer;"></i></td>
+  </tr>
+</table>
